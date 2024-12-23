@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrema</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+
+         <!-- Voeg icoon toe -->
+ <a href="Festivals.html" class="icon-link">
+    <img src="img/MOUTH_pixel2.png" alt="Icoontje" class="icon icon-mouth" id="icon">
+</a>
+
+<div class="fullpage-Extrema"></div>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox">
+    <span class="arrow left" id="prev-btn"></span>
+    <img id="lightboximg" src="" alt="Full-size photo">
+    <span class="arrow right" id="next-btn"></span>
+</div>
+
+<script>
+    const photoUrls = [
+        'img/Extrema/P1020886.png', 'img/Extrema/P1020921.png', 'img/Extrema/P1020964.png',
+        'img/Extrema/P1020891.png', 'img/Extrema/P1020922.png', 'img/Extrema/P1020968.png',
+        'img/Extrema/P1020899.png', 'img/Extrema/P1020924.png', 'img/Extrema/P1020970.png',
+        'img/Extrema/P1020902.png', 'img/Extrema/P1020928.png', 'img/Extrema/P1020971.png',
+        'img/Extrema/P1020905.png', 'img/Extrema/P1020930.png', 'img/Extrema/P1020972.png',
+        'img/Extrema/P1020908.png', 'img/Extrema/P1020932.png', 'img/Extrema/P1020973.png',
+        'img/Extrema/P1020909.png', 'img/Extrema/P1020933.png', 'img/Extrema/P1020978.png',
+        'img/Extrema/P1020916.png', 'img/Extrema/P1020935.png', 'img/Extrema/P1020980.png',
+        'img/Extrema/P1020917.png', 'img/Extrema/P1020947.png', 'img/Extrema/P1020983.png',
+        'img/Extrema/P1020918.png', 'img/Extrema/P1020951.png', 'img/Extrema/P1020984.png',
+        'img/Extrema/P1020920.png', 'img/Extrema/P1020955.png', 'img/Extrema/P10209677.png' 
+
+    ];
+    /*
+        Note:
+         -> placedPositions is ongebruikt 
+    */
+//    const placedPositions = []; // Om posities te tracken
+    const numberOfPhotos = photoUrls.length;
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboximg');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    let currentIndex = 0;
+    
+    // Functie om foto's toe te voegen
+    for (let i = 0; i < numberOfPhotos; i++) {
+        const img = document.createElement('img');
+        img.src = photoUrls[i];
+        img.classList.add('photo');
+
+        // Willekeurige breedte en positie
+        const randomWidth = Math.floor(Math.random() * 200) + 100;
+        img.style.width = randomWidth + 'px';
+        let max_breedte = window.innerWidth - parseInt(img.style.width);
+        console.log(max_breedte);
+        img.style.height = 'auto';
+        img.style.top = Math.random() * (window.innerHeight * 3) + 'px';
+        img.style.left = Math.random() * max_breedte + 'px';
+        img.style.position = 'absolute';
+
+        img.addEventListener('click', () => openLightbox(i));
+        document.body.appendChild(img);
+    }
+    
+    // Open lightbox
+    function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = photoUrls[currentIndex];
+        lightbox.style.display = 'flex';
+    }
+
+    // Sluit lightbox bij klik buiten de afbeelding of pijltjes
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightboxImg) {
+            lightbox.style.display = 'none';
+        }
+    });
+
+    // Vorige foto
+    prevBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); // Voorkom sluiten bij klikken op de pijl
+        currentIndex = (currentIndex - 1 + photoUrls.length) % photoUrls.length;
+        lightboxImg.src = photoUrls[currentIndex];
+    });
+
+    // Volgende foto
+    nextBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); // Voorkom sluiten bij klikken op de pijl
+        currentIndex = (currentIndex + 1) % photoUrls.length;
+        lightboxImg.src = photoUrls[currentIndex];
+    });
+    
+</script>
+</body>
+</html>
