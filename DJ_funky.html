@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genre: Funky</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="funky_body">
+
+    <script>
+        // JavaScript voor sleepfunctionaliteit
+        document.addEventListener("DOMContentLoaded", () => {
+            const containers = document.querySelectorAll('.photo-container');
+
+            containers.forEach(container => {
+                // Willekeurige startpositie
+                /* 
+                -- verwijderd
+                const bodyWidth = document.body.offsetWidth;
+                const bodyHeight = document.body.offsetHeight;
+                -- eind
+
+                ++ toevoegen nieuwe regels body */
+                const FOTO = 150; // variabele voor grootte foto
+                const bodyWidth = (window.innerWidth - FOTO); // ++ verkleint breedte met foto
+                const bodyHeight = (window.innerHeight - FOTO); // ++ verkleint hoogte met foto
+
+                container.style.left = `${Math.random() * bodyWidth}px`;
+                container.style.top = `${Math.random() * bodyHeight}px`;
+
+                // Maak het element sleepbaar
+                container.addEventListener('mousedown', (event) => {
+                    container.classList.add('dragging');
+                    let shiftX = event.clientX - container.getBoundingClientRect().left;
+                    let shiftY = event.clientY - container.getBoundingClientRect().top;
+
+                    function moveAt(pageX, pageY) {
+                        container.style.left = pageX - shiftX + 'px';
+                        container.style.top = pageY - shiftY + 'px';
+                    }
+
+                    function onMouseMove(event) {
+                        moveAt(event.pageX, event.pageY);
+                    }
+
+                    // Voeg eventlisteners toe voor beweging
+                    document.addEventListener('mousemove', onMouseMove);
+
+                    // Verwijder eventlisteners bij loslaten
+                    container.addEventListener('mouseup', () => {
+                        document.removeEventListener('mousemove', onMouseMove);
+                        container.classList.remove('dragging');
+                    }, { once: true });
+                });
+
+                // Zorg ervoor dat afbeeldingen niet worden geselecteerd tijdens het slepen
+                container.ondragstart = () => false;
+            });
+        });
+    </script>
+
+    <!-- Voeg 19 afbeeldingen toe -->
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/1tbsp.png" alt="Image 1" class="hover">
+        <img src="img/Funky/Pixel/1tbsp_pixel.png" alt="Hover 1" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/Bby Ec.png" alt="Image 2" class="hover">
+        <img src="img/Funky/Pixel/Bby Ec_pixel.png" alt="Hover 2" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/dbbd.png" alt="Image 3" class="hover">
+        <img src="img/Funky/Pixel/dbbd_pixel.png" alt="Hover 3" class="default">
+    </div> 
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/Dj fuckoff.jpg" alt="Image 4" class="hover">
+        <img src="img/Funky/Pixel/Dj fuckoff_pixel.png" alt="Hover 4" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/DJ G2G.png" alt="Image 5" class="hover">
+        <img src="img/Funky/Pixel/DJ G2G_pixel.png" alt="Hover 5" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/dm 90.jpeg" alt="Image 6" class="hover">
+        <img src="img/Funky/Pixel/dm 90_pixel.png" alt="Hover 6" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/geo22.jpeg" alt="Image 7" class="hover">
+        <img src="img/Funky/Pixel/geo22_pixel.png" alt="Hover 7" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/Horsegiirl.jpg" alt="Image 8" class="hover">
+        <img src="img/Funky/Pixel/Horsegiirl_pixel.png" alt="Hover 8" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/MCR-T.png" alt="Image 9" class="hover">
+        <img src="img/Funky/Pixel/MCR-T_pixel.png" alt="Hover 9" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/mietze-conte.png" alt="Image 10" class="hover">
+        <img src="img/Funky/Pixel/mietze-conte_pixel.png" alt="Hover 10" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/Miss Bashfull.png" alt="Image 11" class="hover">
+        <img src="img/Funky/Pixel/Miss Bashfull_pixel.png" alt="Hover 11" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/Partyboi.png" alt="Image 12" class="hover">
+        <img src="img/Funky/Pixel/Partyboi_pixel.png" alt="Hover 12" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/Stef de haan.jpg" alt="Image 13" class="hover">
+        <img src="img/Funky/Pixel/Stef de haan_pixel.png" alt="Hover 13" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/Zohar.png" alt="Image 14" class="hover">
+        <img src="img/Funky/Pixel/Zohar_pixel.png" alt="Hover 14" class="default">
+    </div>
+    <div class="photo-container">
+        <img src="img/Funky/Scherp/DJ heartstring.jpg" alt="Image 15" class="hover">
+        <img src="img/Funky/Pixel/DJ hearstring_pixel.png" alt="Hover 15" class="default">
+    </div>
+
+    <div class="spotify-icons">
+        <!-- Icoon 1 -->
+        <a href="https://open.spotify.com/playlist/5saDYFTArVV1pzfBuDQaSx?si=c78d3ab6386f4e26" target="_blank">
+            <img src="img/Spotify logo's/Logo soundcloud_funky.png" alt="Playlist 1">
+        </a>
+    </div>
+
+    <!-- Voeg meer containers toe voor alle 19 afbeeldingen -->
+</body>
+</html>
