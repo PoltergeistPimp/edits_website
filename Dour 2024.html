@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dour 2024</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+
+     <!-- Voeg icoon toe -->
+ <a href="Festivals.html" class="icon-link">
+    <img src="img/MOUTH_pixel2.png" alt="Icoontje" class="icon icon-mouth" id="icon">
+</a>
+
+<div class="fullpage-dour24"></div>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox">
+    <span class="arrow left" id="prev-btn"></span>
+    <img id="lightboximg" src="" alt="Full-size photo">
+    <span class="arrow right" id="next-btn"></span>
+</div>
+
+<script>
+    const photoUrls = [
+        'img/Dour-24/p1030667.png', 'img/Dour-24/p1030674.png', 'img/Dour-24/p1030699.png',
+        'img/Dour-24/p1030709.png', 'img/Dour-24/p1030732.png', 'img/Dour-24/p1030749.png',
+        'img/Dour-24/p1030676.png', 'img/Dour-24/p1030700.png', 'img/Dour-24/p1030711.png',
+        'img/Dour-24/p1030733.png', 'img/Dour-24/p1030753.png', 'img/Dour-24/p1030668.png',
+        'img/Dour-24/p1030681.png', 'img/Dour-24/p1030701.png', 'img/Dour-24/p1030712.png',
+        'img/Dour-24/p1030720.png', 'img/Dour-24/p1030721.png', 'img/Dour-24/p1030707.png',
+        'img/Dour-24/p1030697.png', 'img/Dour-24/p1030735.png', 'img/Dour-24/p1030740.png',
+        'img/Dour-24/p1030742.png', 'img/Dour-24/p1030724.png', 'img/Dour-24/p1030708.png',
+        'img/Dour-24/p1030669.png', 'img/Dour-24/p1030761.png', 'img/Dour-24/p1030767.png',
+        'img/Dour-24/p1030744.png', 'img/Dour-24/p1030726.png', 'img/Dour-24/p1030691.png',
+        'img/Dour-24/p1030692.png', 'img/Dour-24/p1030671.png', 'img/Dour-24/p1030774.png',
+        'img/Dour-24/p1030745.png', 'img/Dour-24/p1030702.png', 'img/Dour-24/p1030703.png',
+        'img/Dour-24/p1030693.png', 'img/Dour-24/p1030672.png', 'img/Dour-24/p10306692.png'
+    ];
+
+    const placedPositions = []; // Om posities te tracken
+    const numberOfPhotos = photoUrls.length;
+
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboximg');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+
+    let currentIndex = 0;
+
+    // Functie om foto's toe te voegen
+    for (let i = 0; i < numberOfPhotos; i++) {
+        const img = document.createElement('img');
+        img.src = photoUrls[i];
+        img.classList.add('photo');
+
+        // Willekeurige breedte en positie
+        const randomWidth = Math.floor(Math.random() * 200) + 100;
+        img.style.width = randomWidth + 'px';
+        img.style.height = 'auto';
+        img.style.top = Math.random() * (window.innerHeight * 3) + 'px';
+        img.style.left = Math.random() * window.innerWidth + 'px';
+        img.style.position = 'absolute';
+
+        img.addEventListener('click', () => openLightbox(i));
+        document.body.appendChild(img);
+    }
+
+    // Open lightbox
+    function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = photoUrls[currentIndex];
+        lightbox.style.display = 'flex';
+    }
+
+    // Sluit lightbox bij klik buiten de afbeelding of pijltjes
+    lightbox.addEventListener('click', (event) => {
+        if (event.target === lightboxImg) {
+            lightbox.style.display = 'none';
+        }
+    });
+
+    // Vorige foto
+    prevBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); // Voorkom sluiten bij klikken op de pijl
+        currentIndex = (currentIndex - 1 + photoUrls.length) % photoUrls.length;
+        lightboxImg.src = photoUrls[currentIndex];
+    });
+
+    // Volgende foto
+    nextBtn.addEventListener('click', (event) => {
+        event.stopPropagation(); // Voorkom sluiten bij klikken op de pijl
+        currentIndex = (currentIndex + 1) % photoUrls.length;
+        lightboxImg.src = photoUrls[currentIndex];
+    });
+</script>
+</body>
+</html>
+
+

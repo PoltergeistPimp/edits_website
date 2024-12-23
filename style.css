@@ -1,0 +1,343 @@
+/* ------------------------- Index page (home) --------------------- */
+
+/* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* html {
+    height: 100%;*/
+    /*width: 100%;
+}
+
+/*.background {
+    background-image: url('img/DSC_0335.png'); /* Vervang 'your-image.jpg' door je eigen afbeelding */
+   /* background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    z-index:0;
+}
+
+/*.container1 {
+    color: blueviolet;
+    z-index:10;
+    width:30%;
+    height:30%;
+    margin-left:10px;
+    margin-top:10px;
+}
+
+/*img {
+    object-fit: cover;
+    position: absolute;
+    width: 200px;
+    height:300px;
+}*/
+
+
+/* ------------------------- Picture pages backgrounds --------------------- */
+
+.fullpage-dour24{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-image: url('img/Dour-24/Dour-achtergrond.png');
+    /* background-attachment: fixed; */
+    background-size: cover;
+   
+}
+
+.fullpage-paradise{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-image: url('img/Paradise City/paradise\ city-achtergrond.png'); /* Vervang met de URL van je achtergrondafbeelding */
+    /* background-attachment: fixed; */
+    background-size: cover;
+   
+}
+
+.fullpage-doel{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-image: url('img/Doel/Doel_achtergrond.png'); /* Vervang met de URL van je achtergrondafbeelding */
+    /* background-attachment: fixed; */
+    background-size: cover;
+
+}
+
+.fullpage-harddoenker{
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        background-image: url('img/Hard\ &\ doenker/Hard&Doenker-achtergrond.png'); /* Vervang met de URL van je achtergrondafbeelding */
+        /* background-attachment: fixed; */
+        background-size: cover;
+
+}
+
+.fullpage-Berlijn{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-image: url('img/Berlijn/Berlijn-achtergrond.png'); /* Vervang met de URL van je achtergrondafbeelding */
+    /* background-attachment: fixed; */
+    background-size: cover;
+
+}
+
+.fullpage-GRLPWR{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-image: url('img/GRL PWR/GRL PWR - achtergrond.png'); /* Vervang met de URL van je achtergrondafbeelding */
+    /* background-attachment: fixed; */
+    background-size: cover;
+    
+}
+
+.fullpage-Extrema{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-image: url('img/Extrema/Achtergrond\ extrema.png'); /* Vervang met de URL van je achtergrondafbeelding */
+    /* background-attachment: fixed; */
+    background-size: cover;
+    
+}
+
+.fullpage-dour23{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-image: url('img/Dour-23/Achtergrond-Dour23.png'); /* Vervang met de URL van je achtergrondafbeelding */
+    /* background-attachment: fixed; */
+    background-size: cover;
+    
+}
+
+/* ------------------------- Picture pages --------------------- */
+
+  
+  .photo {
+      position: absolute;
+      object-fit: contain;
+      transition: transform 0.3s ease, z-index 0s linear 0.3s; /* Zorgt voor vloeiende vergroting en het 'naar voren' effect */
+  }
+  
+   /* Vergroting en naar voren effect wanneer je over de foto hovert */
+   .photo:hover {
+      transform: scale(2.5); /* Vergroot de afbeelding tot 250% van de originele grootte */
+      z-index: 10; /* Zet de afbeelding naar voren */
+  
+} 
+        /* Lightbox overlay */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #lightboximg {
+            max-width: 100%;
+            padding:400px;
+         
+        }
+
+        /* Pijltjes */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            user-select: none;
+            z-index: 1001;
+            border: none;
+            background-color: transparent;
+        }
+
+        .arrow.left {
+            left: 80px; /* Dichter bij de afbeelding */
+            background-image: url('img/Scroll\ icon\ left.png'); /* Linkerpijl afbeelding */       
+        }
+
+        .arrow.right {
+            right: 80px; /* Dichter bij de afbeelding */
+            background-image: url('img/Scroll\ icon\ right.png'); /* Rechterpijl afbeelding */
+        }
+
+
+  
+
+/* ------------------------- Festival and DJ page --------------------- */
+
+  /* Definieer het gedownloade font */
+  @font-face {
+    font-family: 'CustomFont';
+    src: url('fonts/alagard.ttf') format('truetype'); /* Vervang dit door jouw fontbestand */
+}
+
+body {
+    /*height: 100vh;*/
+    background-color: white;
+    cursor: url('img/Hand icon.png') 0 0, auto; /* Normale cursor */
+    position: relative;
+    width: 100vw;
+    /*height: 100vh;
+    overflow: hidden;*/
+    margin: 0;
+    background-color: white;
+    /*overflow: hidden; /* Zorg dat de elementen binnen de viewport blijven *//*
+    font-family: 'CustomFont', sans-serif; /* Gebruik het gedownloade font */
+}
+
+.bouncing-text {
+    position: absolute;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    font-family: 'CustomFont', sans-serif; /* Specifiek font voor de tekst */
+    transition: color 0.3s ease; /* Zachte overgang bij kleurverandering */
+    text-decoration: none; /* Verwijder standaard onderstreping van de link */
+}
+
+/* Kleurverandering bij hover */
+.bouncing-text:hover {
+    color: #FF0672; /* Vervang 'red' door de gewenste kleur */
+}
+
+.hover-images {
+    position: absolute;
+    width: 100px;  /* Kleine afbeeldingsgrootte */
+    display: none;
+    z-index: 999;  /* Zorg ervoor dat de afbeeldingen boven de tekst verschijnen */
+
+}
+
+/* Icoon linksboven */
+.icon-link {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 1000;
+    display: inline-block;
+    width: 100px;
+}
+
+
+.icon:hover {
+    content: url("img/MOUTH2.png");
+
+}
+
+.icon {
+    width: 60px;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+.icon-finger:hover {
+    content: url("img/FUCK YOU.png");
+}
+
+.icon-mouth:hover {
+    content: url("img/MOUTH2.png");
+
+}
+
+/* ------------------------- Genre pages --------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   /* height: 100vh;
+    overflow: hidden; */
+
+}
+
+.photo-container {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    cursor: grab; /* Handcursor bij slepen */
+    
+}
+.photo-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+.photo-container img.hover {
+    opacity: 0; /* Hover-afbeelding standaard verbergen */
+}
+.photo-container:hover img.hover {
+    opacity: 1; /* Toon hover-afbeelding bij muisovergang */
+}
+.photo-container:hover img.default {
+    opacity: 0; /* Verberg standaardafbeelding bij hover */
+
+}
+
+/* Spotify-icoontjes rechtsonder */
+.spotify-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000; /* Zodat het altijd zichtbaar is boven andere elementen */
+}
+
+.spotify-icons a {
+    width: 50px;
+    height: 50px;
+    display: block;
+}
+
+.spotify-icons img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%; /* Maakt het icoon rond */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.spotify-icons img:hover {
+    transform: scale(1.1); /* Icoon wordt groter bij hover */
+    box-shadow: 0 4px 10px #FF0672; /* Groen licht effect */
+}
