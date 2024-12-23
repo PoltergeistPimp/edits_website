@@ -282,15 +282,19 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   /* height: 100vh;
-    overflow: hidden; */
-
+   /* height: 100vh; */
+   /* overflow: hidden; */
 }
-
+/* spreekt de body van DJ_funky.html aan */
+.funky_body {
+    position: absolute;
+    height: 100vh;
+}
 .photo-container {
     position: absolute;
     width: 150px;
     height: 150px;
+    /* overflow: hidden;  */
     cursor: grab; /* Handcursor bij slepen */
     
 }
